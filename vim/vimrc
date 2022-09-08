@@ -1,0 +1,18 @@
+syntax enable
+set ignorecase
+set relativenumber
+set smartcase
+set shiftwidth=4
+set tabstop=4
+set smarttab
+set autoindent
+set expandtab!
+set number
+set encoding=utf-8
+set mouse=nvcr
+set wrap
+set breakindent
+set splitbelow
+set splitright
+
+filetype plugin indent on

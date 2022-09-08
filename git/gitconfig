@@ -1,0 +1,11 @@
+[user]
+	name = Kend
+	email = kendsheld@outlook.com
+
+[core]
+	excludesfile = ~/.gitignore
+    editor = vim
+[init]
+	defaultBranch = main
+[pull]
+	ff = only
