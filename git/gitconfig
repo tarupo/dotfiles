@@ -1,5 +1,5 @@
 [user]
-	name = Kend
+	name = tarupo
 	email = kendsheld@outlook.com
 
 [core]
@@ -9,3 +9,5 @@
 	defaultBranch = main
 [pull]
 	ff = only
+[include]
+    path = ~/.gitconfig_local
