@@ -47,10 +47,17 @@ require('packer').startup(function(use)
     }
 
     -- Theme
-    use 'shaunsingh/nord.nvim'
-    require('nord').set()
-    vim.g.nord_borders = true
+    --    use 'shaunsingh/nord.nvim'
+    --    require('nord').set()
+    --    vim.g.nord_borders = true
+    --    vim.opt.termguicolors = true
+
     vim.opt.termguicolors = true
+    use { 'embark-theme/vim', as = 'embark',
+        config = function()
+            vim.cmd('colorscheme embark')
+        end
+    }
 
     -- Airline
     use 'vim-airline/vim-airline'

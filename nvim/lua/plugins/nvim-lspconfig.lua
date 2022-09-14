@@ -17,7 +17,7 @@ end
 
 -- Diagnostic options, see: `:help vim.diagnostic.config`
 vim.diagnostic.config({
-    virtual_text = false,
+    virtual_text = true,
     signs = (function(_, _)
         return false
     end)
@@ -33,7 +33,7 @@ vim.diagnostic.config({
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
-capabilities.textDocument.completion.completionItem.documentationFormat = {'markdown', 'plaintext'}
+capabilities.textDocument.completion.completionItem.documentationFormat = { 'markdown', 'plaintext' }
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.preselectSupport = true
 capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
@@ -42,7 +42,7 @@ capabilities.textDocument.completion.completionItem.deprecatedSupport = true
 capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
 
 capabilities.textDocument.completion.completionItem.resolveSupport = {
-    properties = {'documentation', 'detail', 'additionalTextEdits'}
+    properties = { 'documentation', 'detail', 'additionalTextEdits' }
 }
 
 -- Use an on_attach function to only map the following keys
@@ -51,6 +51,7 @@ local on_attach = function(client, bufnr)
     local function buf_set_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
     end
+
     local function buf_set_option(...)
         vim.api.nvim_buf_set_option(bufnr, ...)
     end
@@ -122,7 +123,7 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches.
 -- Add your language server below:
-local servers = {'bashls', 'pyright', 'html', 'cssls', 'tsserver', 'rust_analyzer', 'gopls', 'sumneko_lua'}
+local servers = { 'bashls', 'pyright', 'html', 'cssls', 'tsserver', 'rust_analyzer', 'gopls', 'sumneko_lua' }
 
 -- Call setup
 for _, lsp in ipairs(servers) do
@@ -136,4 +137,3 @@ for _, lsp in ipairs(servers) do
         }
     }
 end
-
