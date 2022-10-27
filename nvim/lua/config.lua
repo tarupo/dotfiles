@@ -52,12 +52,19 @@ require('packer').startup(function(use)
     --    vim.g.nord_borders = true
     --    vim.opt.termguicolors = true
 
-    vim.opt.termguicolors = true
-    use { 'embark-theme/vim', as = 'embark',
+    -- use { 'embark-theme/vim', as = 'embark',
+    --     config = function()
+    --         vim.cmd('colorscheme embark')
+    --     end
+    -- }
+
+   use { 'morhetz/gruvbox', as = 'gruvbox',
         config = function()
-            vim.cmd('colorscheme embark')
+            -- vim.opt.termguicolors = true
+            vim.cmd('let g:gruvbox_italic=1')
+            vim.cmd('colorscheme gruvbox')
         end
-    }
+   }
 
     -- Airline
     use 'vim-airline/vim-airline'
