@@ -58,16 +58,29 @@ require('packer').startup(function(use)
     --     end
     -- }
 
-   use { 'morhetz/gruvbox', as = 'gruvbox',
+    -- use { 'morhetz/gruvbox', as = 'gruvbox',
+    --      config = function()
+    --          -- vim.opt.termguicolors = true
+    --          vim.cmd('let g:gruvbox_italic=1')
+    --          vim.cmd('colorscheme gruvbox')
+    --      end
+    -- }
+
+    use { 'EdenEast/nightfox.nvim', as = 'nightfox',
         config = function()
             -- vim.opt.termguicolors = true
-            vim.cmd('let g:gruvbox_italic=1')
-            vim.cmd('colorscheme gruvbox')
+            vim.cmd('colorscheme carbonfox')
         end
-   }
+    }
 
     -- Airline
-    use 'vim-airline/vim-airline'
+    -- use 'vim-airline/vim-airline'
+
+    -- Lualine
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
 
     -- Telescope
     use {
@@ -87,3 +100,4 @@ require('plugins/nvim-cmp')
 require('plugins/nvim-lspconfig')
 require('core/autocmds')
 require('plugins/nvim-telescope')
+require('plugins/lualine')
