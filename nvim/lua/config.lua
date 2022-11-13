@@ -47,31 +47,20 @@ require('packer').startup(function(use)
     }
 
     -- Theme
-    --    use 'shaunsingh/nord.nvim'
-    --    require('nord').set()
-    --    vim.g.nord_borders = true
-    --    vim.opt.termguicolors = true
+    --use { 'EdenEast/nightfox.nvim', as = 'nightfox',
+    --    config = function()
+    --        -- vim.opt.termguicolors = true
+    --        vim.cmd('colorscheme carbonfox')
+    --    end
+    --}
 
-    -- use { 'embark-theme/vim', as = 'embark',
-    --     config = function()
-    --         vim.cmd('colorscheme embark')
-    --     end
-    -- }
-
-    -- use { 'morhetz/gruvbox', as = 'gruvbox',
-    --      config = function()
-    --          -- vim.opt.termguicolors = true
-    --          vim.cmd('let g:gruvbox_italic=1')
-    --          vim.cmd('colorscheme gruvbox')
-    --      end
-    -- }
-
-    use { 'EdenEast/nightfox.nvim', as = 'nightfox',
+    use { 'wadackel/vim-dogrun', as = 'dogrun',
         config = function()
             -- vim.opt.termguicolors = true
-            vim.cmd('colorscheme carbonfox')
+            vim.cmd('colorscheme dogrun')
         end
     }
+
 
     -- Airline
     -- use 'vim-airline/vim-airline'
@@ -81,6 +70,10 @@ require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
+
+    -- using packer.nvim
+    use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
+    require("bufferline").setup {}
 
     -- Telescope
     use {
