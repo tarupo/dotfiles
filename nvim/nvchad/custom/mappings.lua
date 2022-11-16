@@ -2,13 +2,14 @@ local M = {}
 
 M.general = {
   n = {
+    ["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
     ["<space>f"] = {
       function()
         vim.lsp.buf.format { async = true }
       end,
       "lsp formatting",
     },
-    ["<leader>rn"] = {
+    ["<space>rn"] = {
       function()
         require("nvchad_ui.renamer").open()
       end,
@@ -49,6 +50,7 @@ M.disabled = {
   n = {
      ["<Bslash>"] = "",
      ["<leader>fm"] = "",
+     ["<leader>fw"] = "",
      ["<leader>f"] = "",
      ["<leader>ra"] = "",
      ["d]"] = "",

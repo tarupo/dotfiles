@@ -1,4 +1,13 @@
-local on_attach = require("plugins.configs.lspconfig").on_attach
+local on_attach = function (client, bufnr)
+  require("plugins.configs.lspconfig").on_attach(client, bufnr)
+
+  client.server_capabilities.documentFormattingProvider = true
+  client.server_capabilities.documentRangeFormattingProvider = true
+end
+
+
+
+
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
@@ -11,3 +20,6 @@ for _, lsp in ipairs(servers) do
         capabilities = capabilities
     }
 end
+
+
+

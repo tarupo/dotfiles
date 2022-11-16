@@ -15,6 +15,7 @@ ln -f -s $dot_root/vim/vimrc ~/.vimrc
 cd $dot_root/nvim;
 # see: https://nvchad.com/quickstart/install
 rm -rf ~/.local/share/nvim
+rm -rf ~/.config/nvim
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 ln -f -s $dot_root/nvim/nvchad/custom ~/.config/nvim/lua/custom;
 
