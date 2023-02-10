@@ -18,7 +18,8 @@ opt.smartindent = true
 opt.tabstop = 4
 opt.softtabstop = 4
 
-opt.clipboard = "unnamed"
+opt.clipboard = nil
+
 
 
 opt.titlestring = fn.fnamemodify(fn.getcwd(), ":t") .. " - nvim"
