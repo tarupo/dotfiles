@@ -29,3 +29,9 @@ cp "$dot_root/alacritty/alacritty.yml" ~/.config/alacritty/alacritty.yml
 # mkdir -p ~/.config/nvim;
 # ln -f -s $dot_root/nvim/* ~/.config/nvim/;
 
+# profile
+## alias
+_http_proxy="localhost:1087"
+echo "alias proxyon='export http_proxy=$_http_proxy https_proxy=$_http_proxy HTTP_PROXY=$_http_proxy HTTPS_PROXY=$_http_proxy'" >> ~/.profile
+echo "alias proxyoff='unset https_proxy; unset http_proxy; unset http_proxy; unset HTTP_PROXY; unset HTTPS_PROXY'" >> ~/.profile
+
