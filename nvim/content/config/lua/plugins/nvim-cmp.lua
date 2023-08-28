@@ -1,8 +1,3 @@
------------------------------------------------------------
--- Autocomplete configuration file
------------------------------------------------------------
-
--- Plugin: nvim-cmp
 -- url: https://github.com/hrsh7th/nvim-cmp
 
 
@@ -66,11 +61,12 @@ cmp.setup {
 
   -- Load sources, see: https://github.com/topics/nvim-cmp
   sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
+    -- { name = 'nvim_lsp' },
+    -- { name = 'luasnip' },
     { name = 'path' },
     { name = 'buffer' },
   },
 }
+
 
 
