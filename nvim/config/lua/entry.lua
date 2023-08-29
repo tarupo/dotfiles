@@ -20,6 +20,28 @@ require('packer').startup(function(use)
 	-- Package manager
 	use 'wbthomason/packer.nvim'
 
+	use "rebelot/kanagawa.nvim"
+        require("theme")
+
+
+
+	-- LSP
+	use {
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
+	}
+	require("mason").setup({
+		ui = {
+			icons = {
+				package_installed = "✓",
+				package_pending = "➜",
+				package_uninstalled = "✗"
+			}
+		}
+	})
+	require("mason-lspconfig").setup()
+
 	-- autocomplete
 	use {
 		'hrsh7th/nvim-cmp',
@@ -31,6 +53,7 @@ require('packer').startup(function(use)
 		requires = {{'nvim-lua/plenary.nvim'}}
 	}
 
+
 	if packer_bootstrap then
 		require('pakcer').sync()
 	end
@@ -38,4 +61,6 @@ end)
 
 require('plugins/nvim-cmp')
 require('plugins/nvim-telescope')
+require('plugins/nvim-lspconfig')
+
 

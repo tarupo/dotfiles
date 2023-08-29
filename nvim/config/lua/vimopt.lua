@@ -6,4 +6,6 @@ opt.smartcase = true
 opt.smarttab = true
 opt.number = true
 opt.relativenumber = true
+opt.shiftwidth = 4
+opt.expandtab = true
 
