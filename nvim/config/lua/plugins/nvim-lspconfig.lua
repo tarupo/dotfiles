@@ -1,10 +1,8 @@
------------------------------------------------------------
--- Neovim LSP configuration file
------------------------------------------------------------
 -- Plugin: nvim-lspconfig
 -- url: https://github.com/neovim/nvim-lspconfig
 -- For configuration see the Wiki: https://github.com/neovim/nvim-lspconfig/wiki
 -- Autocompletion settings of "nvim-cmp" are defined in plugins/nvim-cmp.lua
+
 local lsp_status_ok, lspconfig = pcall(require, 'lspconfig')
 if not lsp_status_ok then
     return
@@ -96,52 +94,28 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 end
 
---[[
 
-Language servers setup:
 
-For language servers list see:
-https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+require("mason").setup()
+require("mason-lspconfig").setup()
 
-Language server installed:
 
-Bash          -> bashls
-Python        -> pyright
-C-C++         -> clangd
-HTML/CSS/JSON -> vscode-html-languageserver
-JavaScript/TypeScript -> tsserver
-
---]]
-
--- Define `root_dir` when needed
--- See: https://github.com/neovim/nvim-lspconfig/issues/320
--- This is a workaround, maybe not work with some servers.
-local root_dir = function()
-    return vim.fn.getcwd()
-end
-
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches.
--- Add your language server below:
-local servers = {
-	'bashls',
-	'pyright',
-	'tsserver',
-	'rust_analyzer',
-	'gopls',
-	'clangd',
-	'hls',
-}
-
--- Call setup
-for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup {
-        on_attach = on_attach,
-        root_dir = root_dir,
-        capabilities = capabilities,
-        flags = {
-            -- default in neovim 0.7+
-            debounce_text_changes = 150
+require("mason-lspconfig").setup_handlers {
+    -- The first entry (without a key) will be the default handler
+    -- and will be called for each installed server that doesn't have
+    -- a dedicated handler.
+    function(server_name) -- default handler (optional)
+        require("lspconfig")[server_name].setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            flags = {
+                debounce_text_changes = 150
+            }
         }
-    }
-end
+    end,
+    -- Next, you can provide a dedicated handler for specific servers.
+    -- For example, a handler override for the `rust_analyzer`:
+    -- ["rust_analyzer"] = function ()
+    --     require("rust-tools").setup {}
+    -- end
+}
