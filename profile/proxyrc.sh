@@ -22,6 +22,8 @@ pon()
 
     proxy_addr="$scheme://$PROXY_HOST:$MIX_PROXY_PORT"
 
+    export NO_PROXY="localhost,127.0.0.1,::"
+    export no_proxy="localhost,127.0.0.1,::"
 
     for title in $PROXY_TITLE; do
         export "$title"="$proxy_addr"
@@ -48,4 +50,5 @@ proxyoff ()
         unset $title
         unset $(echo $title | tr '[:lower:]' '[:upper:]')
     done
+    unset NO_PROXY no_proxy
 }
