@@ -1,5 +1,6 @@
 local opt = vim.opt
 
+opt.mousem = extend
 opt.ignorecase = true
 opt.smartcase = true
 opt.smarttab = true
